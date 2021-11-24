@@ -6,3 +6,4 @@ Gemfile.lock
 themes/
 *.bak
 scraping/
+scraping-bak/
