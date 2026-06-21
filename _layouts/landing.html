@@ -17,16 +17,6 @@
       <div class="titlebar-right">SCAN&nbsp;·&nbsp;{{ site.time | date: "%Y-%m-%d" }}</div>
     </div>
 
-    <div class="querybar">
-      <div class="query-stmt">
-        <span class="kw">SELECT</span> hostname, status, data_preview
-        <span class="kw">FROM</span> <span class="fn">osint_sweep</span>(<span class="val">'*.firebaseio.com'</span>)
-        <span class="kw">WHERE</span> auth_required = <span class="val">false</span>
-        <span class="kw">ORDER BY</span> source
-      </div>
-      <div class="query-result"><strong>{%- include scan-count.html -%}</strong>&nbsp;rows&nbsp;·&nbsp;passive osint</div>
-    </div>
-
     <header class="page-header">
       <p class="page-eyebrow">whohasopenfirebases.com&nbsp;·&nbsp;weekly osint scan</p>
       <h1 class="page-heading">Who has<br><em>open firebases?</em></h1>
@@ -59,7 +49,6 @@
       </div>
       <div class="footer-brand">
         whohasopenfirebases.com<br>
-        passive osint · no api keys · <a href="https://github.com/edrapac/whohasopenfirebases">open source</a>
       </div>
     </footer>
 
