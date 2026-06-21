@@ -1,24 +1,12 @@
-
-<div class="py-5 border-top">
-  <div class="container">
-
-    <p class="h5 mb-3">{{ site.title | escape }}</p>
-
-    <div class="row">
-
-
-      <div class="col-sm text-left">
-        <p>{{- site.description | escape -}}</p>
-
-        <p>
-          <a href="https://github.com/edrapac/whohasopenfirebases">Source for this site can be found here</a>
-        </p>
-        <p>
-          <a href="https://sprucelab.site/">Follow my personal blog!</a>
-        </p>
-      </div>
-
-    </div>
-
+<footer class="site-footer">
+  <div class="footer-note">
+    <span>{{ site.title | escape }}</span><br>
+    {{ site.description | escape }}<br>
+    <a href="https://github.com/edrapac/whohasopenfirebases">Source on GitHub</a> &nbsp;·&nbsp;
+    <a href="https://sprucelab.site/">sprucelab.site</a>
   </div>
-</div>
+  <div class="footer-brand">
+    whohasopenfirebases.com<br>
+    OSINT · Firebase · Security Research
+  </div>
+</footer>

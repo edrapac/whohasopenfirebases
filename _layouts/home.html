@@ -1,41 +1,29 @@
 ---
 layout: default
 ---
-
-<div>
-
+<main class="page-wrap">
   {%- if page.title -%}
-  <header>
-    <h1>{{ page.title }}</h1>
+  <header class="page-header">
+    <p class="page-eyebrow">whohasopenfirebases.com</p>
+    <h1 class="page-heading">{{ page.title }}</h1>
   </header>
   {%- endif -%}
 
-  <section>
+  <section class="page-content">
     {{ content }}
   </section>
 
   {%- if site.posts.size > 0 -%}
-    <p class="h4">{{ page.list_title | default: "Posts" }}</p>
-    <ul class="list-unstyled">
+  <section class="page-content" style="margin-top:3rem;">
+    <h3>{{ page.list_title | default: "Posts" }}</h3>
+    <ul class="post-list">
       {%- for post in site.posts -%}
       <li>
-        <span class="text-muted">
-          {%- assign date_format = "%b %-d, %Y" -%}
-          {{ post.date | date: date_format }}
-        </span>
-        <p class="h5">
-          <a href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </p>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
+        <span class="page-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
       </li>
       {%- endfor -%}
     </ul>
-
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  </section>
   {%- endif -%}
-
-</div>
+</main>

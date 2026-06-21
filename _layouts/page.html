@@ -1,14 +1,16 @@
 ---
 layout: default
 ---
-<article>
-
-  <header>
-    <h1>{{ page.title | escape }}</h1>
-  </header>
-
-  <section>
-    {{ content }}
-  </section>
-
-</article>
+<main class="page-wrap">
+  <article>
+    {%- if page.title -%}
+    <header class="page-header">
+      <p class="page-eyebrow">whohasopenfirebases.com</p>
+      <h1 class="page-heading">{{ page.title | escape }}</h1>
+    </header>
+    {%- endif -%}
+    <section class="page-content">
+      {{ content }}
+    </section>
+  </article>
+</main>
