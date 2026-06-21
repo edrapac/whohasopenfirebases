@@ -416,6 +416,65 @@ code, pre {
   white-space: nowrap;
 }
 
+/* Tab bar */
+[hidden] { display: none !important; }
+
+.tab-bar {
+  background: var(--ground-2);
+  border-bottom: 1px solid var(--ground-3);
+  display: flex;
+  align-items: stretch;
+  padding: 0 0.75rem;
+  height: 36px;
+  position: sticky;
+  top: 38px;
+  z-index: 99;
+}
+
+.tab-btn {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  padding: 0 1rem;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Archive panel */
+.archive-wrap {
+  max-width: 1200px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.archive-intro {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+.archive-link {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--teal);
+  letter-spacing: 0.04em;
+}
+.archive-link:hover { color: var(--accent); opacity: 1; }
+
 /* Querybar */
 .querybar {
   background: var(--ground);
@@ -515,7 +574,7 @@ code, pre {
   border-bottom: 1px solid var(--ground-3);
   background: var(--ground);
   position: sticky;
-  top: 38px;
+  top: 74px;
 }
 .table-scan-wrap tbody tr {
   border-bottom: 1px solid var(--ground-3);
