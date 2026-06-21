@@ -1,0 +1,105 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+  {%- include head.html -%}
+  <body class="landing">
+
+    <div class="titlebar">
+      <div class="titlebar-left">
+        <div class="traffic-lights">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <span class="db-label">internet.firebaseio.com — unauthenticated</span>
+      </div>
+      <div class="titlebar-right">SCAN&nbsp;·&nbsp;{{ site.time | date: "%Y-%m-%d" }}</div>
+    </div>
+
+    <div class="tab-bar" role="tablist">
+      <button class="tab-btn active" data-tab="latest" onclick="switchTab('latest')" role="tab" aria-selected="true">LATEST&nbsp;·&nbsp;{{ site.time | date: "%Y-%m-%d" }}</button>
+      <button class="tab-btn" data-tab="archive" onclick="switchTab('archive')" role="tab" aria-selected="false">ARCHIVE&nbsp;·&nbsp;{{ site.posts | size }}&nbsp;SCANS</button>
+    </div>
+
+    <div id="tab-latest" class="tab-panel">
+
+      
+
+      <header class="page-header">
+        <p class="page-eyebrow">whohasopenfirebases.com&nbsp;·&nbsp;weekly osint scan</p>
+        <h1 class="page-heading">Who has<br><em>open firebases?</em></h1>
+        {%- include scan-stats.html -%}
+      </header>
+
+      <div class="table-outer">
+        <div class="table-scan-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>status</th>
+                <th>endpoint</th>
+                <th class="hide-sm">preview</th>
+                <th class="hide-sm">source</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%- include firebases.html -%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    <footer class="page-footer">
+      <div class="footer-note">
+        All instances respond HTTP&nbsp;200 on /.json without credentials.<br>
+        Data previews truncated. No data was stored or exfiltrated.<br>
+        Amber rows contain potentially sensitive-looking data.
+      </div>
+      <div class="footer-brand">
+        whohasopenfirebases.com<br>
+      </div>
+    </footer>
+
+    </div>
+
+    <div id="tab-archive" class="tab-panel" hidden>
+      <div class="archive-wrap">
+        <p class="archive-intro">{{ site.posts | size }} scans on record since {{ site.posts.last.date | date: "%B %Y" }}.</p>
+        <div class="table-scan-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>date</th>
+                <th>records</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%- for post in site.posts -%}
+              <tr>
+                <td><span class="host"><a href="{{ post.url }}">{{ post.date | date: "%Y-%m-%d" }}<span class="tld">&nbsp;scan</span></a></span></td>
+                <td><a href="{{ post.url }}" class="archive-link">view results →</a></td>
+              </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    function switchTab(id) {
+      document.querySelectorAll('.tab-panel').forEach(function(p) { p.hidden = true; });
+      document.querySelectorAll('.tab-btn').forEach(function(b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.getElementById('tab-' + id).hidden = false;
+      var btn = document.querySelector('[data-tab="' + id + '"]');
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    }
+    </script>
+
+  </body>
+</html>
