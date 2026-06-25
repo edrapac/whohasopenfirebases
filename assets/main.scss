@@ -576,6 +576,9 @@ code, pre {
   position: sticky;
   top: 74px;
 }
+.archive-wrap .table-scan-wrap thead th {
+  position: static;
+}
 .table-scan-wrap tbody tr {
   border-bottom: 1px solid var(--ground-3);
   transition: background 0.12s;
